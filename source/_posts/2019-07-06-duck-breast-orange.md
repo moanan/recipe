@@ -14,7 +14,7 @@ tags:
 
 参考视频：[廚房裡的人類學家：煎鴨胸配香橙醬汁](https://www.youtube.com/watch?v=vqP-A6MV7cc)
 
-## 材料：
+## 材料
 - 鸭胸
 - 土豆
 - 橙汁
