@@ -1,8 +1,50 @@
-# Docker hexo-cli
-Docker Image for [Hexo](https://hexo.io/) `hexo-cli`.
+# Blogging with MacOS
 
-## Run:
+## Setup Hexo
+```
+brew install node
+npm install -g hexo-cli
+npm install hexo-deployer-git --save
+```
+## Setup Theme Maupassant
+```
+cd /your_blog_dir/
+git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
+npm install hexo-renderer-pug --save
+npm install hexo-renderer-sass --save
+```
 
+## Usage
+```bash
+# create new post
+hexo new 2020-01-01-whatever
+# start local server
+hexo s
+# generate static files
+hexo g
+# deploy to github pages
+hexo d
+```
+
+# Blogging with Docker
+The currently using [Maupassant Theme](https://github.com/tufu9441/maupassant-hexo) requires `hexo-renderer-pug` and `hexo-renderer-sass` which often mess up with Node versions and dependencies. 
+
+To solve this, I use a modified [Docker hexo-cli](https://github.com/martindsouza/docker-hexo):
+```
+docker pull moanan/hexo_maupassant:mode14.16.0-alpine3.10
+# yes, mode is a typo
+```
+where I specified the working node version:
+```
+FROM node:14.16.0-alpine3.10 as hexo-base
+```
+and added Maupassant dependencies:
+```
+npm install hexo-renderer-pug --save && \
+ npm install hexo-renderer-sass --save && \
+```
+
+## Usage
 Add the following to create (and persist) alias to `~/.bash_profile` (or `~/.zshrc` if using zsh):
 
 ```bash
@@ -13,7 +55,7 @@ alias hexo_m="docker run -it --rm \
   hexo_maupassant"
 ```
 
-You can then run all hexo commands as you normally would with the caveat that the container ***can only see the current directory or any of its children***. i.e. don't run commands like `hexo init ../../my-new-blog`
+You can then run all hexo (now `hexo_m`) commands as you normally would with the caveat that the container ***can only see the current directory or any of its children***. i.e. don't run commands like `hexo init ../../my-new-blog`
 
 Port | Desc
 --- | ---
