@@ -48,7 +48,7 @@ npm install hexo-renderer-pug --save && \
 Add the following to create (and persist) alias to `~/.bash_profile` (or `~/.zshrc` if using zsh):
 
 ```bash
-alias hexo_m="docker run -it --rm \
+alias hexo="docker run -it --rm \
   -v `pwd`:/opt/node_app/app \
   -p 4000:4000 \
   -p 3000:3000 \
