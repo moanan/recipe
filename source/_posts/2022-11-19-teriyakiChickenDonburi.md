@@ -1,10 +1,10 @@
 ---
-title: 灯盏糍
-date: 2022-09-18 15:30:27
+title: 照烧鸡腿饭
+date: 2022-11-19 19:56:27
 tags:
 ---
 
-<!-- {% asset_img WechatIMG183.jpeg %} -->
+{% asset_img WechatIMG6298.jpeg %}
 
 <!--more-->
 
